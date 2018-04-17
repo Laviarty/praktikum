@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>TEST Upload</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="css/dropzone.css">
+        
+        <script src="Scripts/dropzone.js"></script>
+        <!--<script>Dropzone.autoDiscover = false;</script>-->
+    </head>
+    
+    <body>
+        
+        <section>
+            <h1 id="title">QC for Affymetrix</h1>
+            <form id="projectform">
+                Enter your Projectname:
+                <input type="text" id="projectname">
+            </form>
+            <div id="dropzone">
+                <form action="/test-upload" class="dropzone dz-clickable" id="demo-upload">
+                    <div class="dz-message">Drop files here or click to upload.</div>
+                </form>
+            </div>
+        </section>
+    
+        
+        <div id="buttons" class="row">
+
+            <div class="col-lg-7">
+            <!-- The fileinput-button span is used to style the file input field as button -->
+            <button class="btn btn-success fileinput-button">
+                <i class="fa fa-plus"></i>
+                <span>Add Files</span>
+            </button>
+            <button type="submit" class="btn btn-primary start">
+                <i class="fa fa-arrow-circle-o-up"></i>
+                <span>Start Upload</span>
+            </button>
+            <button type="reset" class="btn btn-warning cancel">
+                <i class="fa fa-ban"></i>
+                <span>Cancel Upload</span>
+            </button>
+            </div>
+        </div>
+
+            <div id="progress" class="col-lg-5">
+            <!-- The global file processing state -->
+            <span class="fileupload-process">
+            <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"   aria-valuenow="0">
+            <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+            </div>
+            </span>
+            <!--</div>-->
+
+        </div>
+        
+        
+    </body>
+</html>
