@@ -244,9 +244,11 @@ html, body { height: 100%; font-family: Roboto, "Open Sans", sans-serif; font-si
 
 h1, h2, h3, table th, table th .header { font-size: 1.8rem; color: #0087F7; -webkit-font-smoothing: antialiased; line-height: 2.2rem; }
 
-h1, h2, h3 { margin-top: 2.8rem; margin-bottom: 1.4rem; }
+h1, h2 { margin-top: 2.8rem; margin-bottom: 1.4rem; }
 
-h2 { font-size: 1.4rem; }
+h2 { font-size: 1.4rem; margin-left: 1rem;}
+
+h3 { font-size: 1rem; margin-left: 2rem; margin-bottom: 0.5rem; float: center;}
 
 h1.anchor, h2.anchor { margin: 0; padding: 0; height: 0; overflow: hidden; visibility: hidden; }
 

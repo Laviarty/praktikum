@@ -1,4 +1,24 @@
-<?php
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/images.css">
+		<link rel="stylesheet" href="../css/dropzone.css">
+	</head>
+		<body>
+			<h1>Analyse</h1>
+					<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+	<div>
+			<?php
      $files = glob("../../Output/*.*");
      for ($i=0; $i<count($files); $i++)
       {
@@ -12,10 +32,17 @@
 
          $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
          if (in_array($ext, $supported_file)) {
-            echo basename($image)."<br />"; // show only image name if you want to show full path then use this code // echo $image."<br />";
-             echo '<img src="'.$image .'" alt="Random image" />'."<br /><br />";
+            echo "<h2>".basename($image)."</h2>"."<br />";
+             echo '<img src="'.$image .'" alt=" '.basename($image).'" onclick="showModal(this)" />';
+				 echo "<br /><br />";
             } else {
                 continue;
             }
           }
        ?>
+			</div>
+		<script src="modalImages.js"></script>
+		
+		
+	  </body>
+</html>
