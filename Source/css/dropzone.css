@@ -199,11 +199,11 @@ table { border-collapse: collapse; border-spacing: 0; }
 .nx { color: #4C556B; }
 
 /* --------------------Name Form----------------------------------------*/
-#projectform {margin-left: 3rem; margin-bottom: 10px;}
+#projectform {/*margin-left: 3rem;*/ margin-bottom: 10px;}
 /* --------------------------------------------------------------------*/
 
 /* --------------------DROPZONE----------------------------------------*/
-#dropzone { margin-bottom: 1rem; margin-left: 3rem;}
+#dropzone { margin-bottom: 1rem; /*margin-left: 3rem;*/}
 
 .dropzone { border: 2px dashed #0087F7; border-radius: 5px; background: white; width: 50%}
 .dropzone .dz-message { font-weight: 400; }
@@ -211,7 +211,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* --------------------------------------------------------------------*/
 
 /* --------------------Buttons----------------------------------------*/
-#buttons {margin-left: 3rem;  margin-bottom: 1rem;}
+.btn {margin-left: 1rem;  margin-bottom: 1rem;}
+#buttons{ /*margin-left:2rem;*/ float:left;}
+
 /* --------------------------------------------------------------------*/
 
 /* --------------------H1----------------------------------------*/
