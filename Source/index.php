@@ -7,7 +7,10 @@
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
-        <link rel="stylesheet" href="css/dropzone.css">
+       <link rel="stylesheet" href="css/dropzone.css">
+		
+		
+       <link rel="stylesheet" href="css/images.css">
         
         <script src="Scripts/dropzone.js"></script>
         
@@ -21,15 +24,18 @@
     </head>
     
     <body>
-		<ul class="nav nav-tabs list-inline">
-  <li class="active"><a data-toggle="tab" href="#home">Upload</a></li>
-  <li><a data-toggle="tab" href="#menu1">Analyse</a></li>
-  <li><a data-toggle="tab" href="#menu2">Ergebnisse</a></li>
+		
+		<ul class="nav nav-pills list-inline" style="background-color: LightGrey;">
+			
+  <li style="list-style-type:none; padding-left: 2rem;" id="websiteName">Praktikum '18</li>
+  <li style="list-style-type:none; padding-left: 2rem;" class="active"><a data-toggle="tab" href="#home">Upload</a></li>
+  <li style="list-style-type:none; padding-left: 2rem;" ><a data-toggle="tab" href="#menu1">Analyse</a></li>
+  <li style="list-style-type:none; padding-left: 2rem;" ><a data-toggle="tab" href="#menu2">Ergebnisse</a></li>
 </ul>
 
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
-    <h3>HOME</h3>
+    <h3>Cel-Files zum Analysieren hochladen</h3>
     <div><div >
                     <div >
                         <!--++++++++++++START OF UPLOAD+++++++++++++++++++-->
@@ -130,15 +136,14 @@
                 </div></div>
   </div>
   <div id="menu1" class="tab-pane fade">
-    <h3>Menu 1</h3>
     <div> <div>
                     <div >
                         <!-- +++++++++++++++++++++ CODE FOR PROCESSING++++++++++++++++++++++++-->
-                        <div>
+                        <div style="padding-left: 2rem;">
                             <div>
                                 <p id="info"></p>
             
-                                <table id="namefiles" class="form" border="1">
+                                <table id="namefiles" class="form" border="1" style="margin-bottom: 1rem;">
                                 <tbody>
                                     <script>
                                         var table = document.getElementById("namefiles");
@@ -187,7 +192,7 @@
                 </div></div>
   </div>
   <div id="menu2" class="tab-pane fade">
-    <h3>Menu 2</h3>
+    <h3>Analyseergebnisse</h3>
     <div><div >
                     <div class="card-body">
                     <!-- +++++++++++++++++++++ CODE FOR RESULTS++++++++++++++++++++++++-->

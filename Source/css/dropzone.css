@@ -276,7 +276,7 @@ aside { font-size: 0.8em; color: rgba(0, 0, 0, 0.4); }
 hr { border: none; background: none; position: relative; height: 2.8rem; }
 hr:after { content: ""; position: absolute; top: 1.4rem; left: 0; right: 0; height: 1px; background: rgba(0, 0, 0, 0.1); }
 
-ul li { list-style-type: disc; padding-top: 0.7rem; padding-bottom: 0.7rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+ul li { list-style-type: disc; margin: 3rem; padding-top: 0.7rem; padding-bottom: 0.7rem; padding-left: 1rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 ul li:last-of-type { border: none; }
 
 .highlight { padding: 1.4rem; overflow: auto; background: rgba(100, 108, 128, 0.04); margin-top: 2.8rem; margin-bottom: 2.8rem; }
@@ -341,7 +341,7 @@ main section:nth-child(even) { background: #E8E9EC; }
 main section.news { background: #646C7F; color: white; }
 main section.news h1, main section.news h2 { color: white; -webkit-font-smoothing: subpixel-antialiased; }
 main section.news a { color: #C0E3FE; border-color: #C0E3FE; }
-main table { font-size: 0.9rem; margin-top: 1.4rem; margin-bottom: 4.2rem; border: 1px solid #38A0FE; border-bottom: none; background: white; }
+main table { font-size: 0.9rem; margin-top: 1.4rem; margin-bottom: 4.2rem; margin-left: 2rem; border: 1px solid #38A0FE; border-bottom: none; background: white; }
 main table th:first-of-type, main table td:first-of-type { text-align: right; }
 main table th, main table td { text-align: left; border-bottom: 1px solid #38A0FE; padding: 0.7rem 1.4rem; }
 main table td:first-of-type, main table th:first-of-type { border-right: 1px solid #38A0FE; }
