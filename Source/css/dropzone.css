@@ -276,7 +276,7 @@ aside { font-size: 0.8em; color: rgba(0, 0, 0, 0.4); }
 hr { border: none; background: none; position: relative; height: 2.8rem; }
 hr:after { content: ""; position: absolute; top: 1.4rem; left: 0; right: 0; height: 1px; background: rgba(0, 0, 0, 0.1); }
 
-ul li { list-style-type: disc; margin: 3rem; padding-top: 0.7rem; padding-bottom: 0.7rem; padding-left: 1rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+ul li { list-style-type: none; padding-top: 0.3rem; padding-bottom: 0.3rem; padding-left: 1rem; border: none; margin: 0.7rem;}
 ul li:last-of-type { border: none; }
 
 .highlight { padding: 1.4rem; overflow: auto; background: rgba(100, 108, 128, 0.04); margin-top: 2.8rem; margin-bottom: 2.8rem; }
@@ -284,7 +284,7 @@ ul li:last-of-type { border: none; }
 .bitcoin { overflow: auto; }
 
 blockquote { color: #0087F7; font-size: 1.2rem; line-height: 2rem; -webkit-font-smoothing: antialiased; margin-top: 2.8rem; margin-bottom: 2.8rem; }
-blockquote a { border-bottom: 1px solid #0087F7; }
+blockquote { border-bottom: 1px solid #0087F7; }
 
 body > header { position: relative; padding: 2.8rem 1.4rem; z-index: 10; }
 body > header .content { opacity: 1; background: #F3F4F5; z-index: 10; }
@@ -313,10 +313,10 @@ body > header .scroll-invitation a span { display: none; }
   body > header h2 { margin-top: 2.8rem; margin-bottom: 2.8rem; }
   body > header .scroll-invitation { margin-top: 5.6rem; } }
 
-main > nav { position: absolute; top: 0; left: 0; bottom: 0; width: 220px; background: #028AF4; padding: 1.4rem 0; z-index: 200; overflow: auto; display: none; }
+main > nav { position: absolute; top: 0; left: 0; bottom: 0; width: 220px; background: #028AF4; z-index: 200; overflow: auto; display: none; }
 main > nav.fixed { position: fixed; }
 main > nav img { margin: 0 0 1.4rem 1.4rem; width: 58px; height: 58px; }
-main > nav a:not(.logo) { display: block; line-height: 1.4rem; color: rgba(255, 255, 255, 0.9); border: none; padding: 0.7rem 1.4rem; font-size: 0.8rem; -webkit-font-smoothing: subpixel-antialiased; }
+main > nav a:not(.logo) { display: block; line-height: 1.4rem; color: rgba(255, 255, 255, 0.9); border: none; font-size: 0.8rem; -webkit-font-smoothing: subpixel-antialiased; }
 main > nav a:not(.logo):hover { background: rgba(255, 255, 255, 0.3); }
 main > nav .sub-sections { height: 0; overflow: hidden; -webkit-transition: height 0.4s ease; -moz-transition: height 0.4s ease; -ms-transition: height 0.4s ease; -o-transition: height 0.4s ease; transition: height 0.4s ease; }
 main > nav .visible { background: rgba(255, 255, 255, 0.13); }

@@ -7,7 +7,7 @@
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
-       <link rel="stylesheet" href="css/dropzone.css">
+       <link rel="stylesheet" href="./css/dropzone.css">
 		
 		
        <link rel="stylesheet" href="css/images.css">
@@ -27,14 +27,14 @@
 		
 		<ul class="nav nav-pills list-inline" style="background-color: LightGrey;">
 			
-  <li style="list-style-type:none; padding-left: 2rem;" id="websiteName">Praktikum '18</li>
-  <li style="list-style-type:none; padding-left: 2rem;" class="active"><a data-toggle="tab" href="#home">Upload</a></li>
-  <li style="list-style-type:none; padding-left: 2rem;" ><a data-toggle="tab" href="#menu1">Analyse</a></li>
-  <li style="list-style-type:none; padding-left: 2rem;" ><a data-toggle="tab" href="#menu2">Ergebnisse</a></li>
+  <li style="list-style-type:none; padding:0 0 0 2rem; border:none; margin: 1rem;" id="websiteName">Praktikum '18</li>
+  <li style="list-style-type:none; padding:0 0 0 2rem; border:none; margin: 1rem;" class="active"><a data-toggle="tab" href="#home">Upload</a></li>
+  <li style="list-style-type:none; padding:0 0 0 2rem; border:none; margin: 1rem" ><a data-toggle="tab" href="#menu1">Analyse</a></li>
+  <li style="list-style-type:none; padding:0 0 0 2rem; border:none; margin: 1rem" ><a data-toggle="tab" href="#menu2">Ergebnisse</a></li>
 </ul>
 
 <div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
+  <div id="home" class="tab-pane fade in active" style="padding-left: 2rem;">
     <h3>Cel-Files zum Analysieren hochladen</h3>
     <div><div >
                     <div >
@@ -77,6 +77,13 @@
                                     <span>Cancel Upload</span>
                                     <input onclick=reload() hidden>
                                     <script> function reload(){location.reload();}</script>
+                                </label>
+								
+								<label class="btn btn-warning cancel" style="background-color: red;">
+                                    <i class="fa fa-ban"></i>
+                                    <span>Delete</span>
+                                    <input type="submit" clas="button" value="delete" id="delete" hidden>
+									<script src="delete.js"></script>
                                 </label>
                             </div>
                             </form>
@@ -141,7 +148,7 @@
                         <!-- +++++++++++++++++++++ CODE FOR PROCESSING++++++++++++++++++++++++-->
                         <div style="padding-left: 2rem;">
                             <div>
-                                <p id="info"></p>
+                                <h3 id="info"></h3>
             
                                 <table id="namefiles" class="form" border="1" style="margin-bottom: 1rem;">
                                 <tbody>
@@ -192,8 +199,7 @@
                 </div></div>
   </div>
   <div id="menu2" class="tab-pane fade">
-    <h3>Analyseergebnisse</h3>
-    <div><div >
+    <h3>Analyseergebnisse:</h3>
                     <div class="card-body">
                     <!-- +++++++++++++++++++++ CODE FOR RESULTS++++++++++++++++++++++++-->
                    	<div id="myModal" class="modal">
@@ -233,9 +239,8 @@
 			</div>
 		<script src="modalImages.js"></script>
                     </div>
-                </div></div>
-  </div>
-</div>
+                </div>
+		</div>
 
      <!--   <div id="accordion">
             <!-- ++++++++++++++++++++++UPLOAD CARD ++++++++++++++++++++++++++++++++++++++++-->
