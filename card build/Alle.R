@@ -1,0 +1,12 @@
+library(affy)
+
+source("rma.R")
+source("mas5.R")
+source("table.R")
+source("scatterPlot.R")
+source("images.R")
+source("heatmap.R")
+source("boxplot.R")
+source("signalkurve.R")
+source("correlation.R")
+source("RNAdegradation.R")
