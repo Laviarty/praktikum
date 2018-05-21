@@ -1,5 +1,7 @@
 <?php            
     /*if(isset($_POST['submit'])) {}*/
+
+echo "gestartet";
     $dir = '../../Input';
     $names = scandir($dir);
     $fp = fopen("../../Output/type.txt", "w+");
