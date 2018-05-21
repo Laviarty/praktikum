@@ -25,16 +25,16 @@
     
     <body>
 		
-		<ul class="nav nav-pills list-inline" style="background-color: LightGrey;">
+		<ul class="nav nav-pills list-inline" role="tablist" style="background-color: LightGrey;">
 			
   <li id="websiteName">Praktikum '18</li>
-  <li class="active"><a data-toggle="tab" href="#home">Upload</a></li>
-  <li><a data-toggle="tab" href="#menu1">Analyse</a></li>
-  <li><a data-toggle="tab" href="#menu2">Ergebnisse</a></li>
+  <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#home" role="tab">Upload</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#menu1" role="tab">Analyse</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#menu2" role="tab">Ergebnisse</a></li>
 </ul>
 
 <div class="tab-content">
-  <div id="home" class="tab-pane fade in active" style="padding-left: 2rem;">
+  <div id="home" class="tab-pane active" style="padding-left: 2rem;" role="tabpanel">
     <h3>Cel-Files zum Analysieren hochladen</h3>
     <div>
                         <!--++++++++++++START OF UPLOAD+++++++++++++++++++-->
@@ -81,9 +81,13 @@
 								<label class="btn btn-warning cancel" style="background-color: red;">
                                     <i class="fa fa-ban"></i>
                                     <span>Delete</span>
-                                    <input type="submit" class="button" value="delete" onclick=deleteFiles() hidden>
-									<!--<script> function deleteFiles(){<?php array_map('unlink', glob("../Input/*.*"))?>}</script>-->
+                                    <input type="submit" class="button" onclick=deleteFiles() hidden>
 									<!--<script src="delete.js"></script>-->
+									<script> 
+										function deleteFiles(){
+    										$.post("delete.php");
+											}
+											</script>
                                 </label>
                             </div>
                             </form>
@@ -141,7 +145,7 @@
                         ?>
                     </div>
   </div>
-  <div id="menu1" class="tab-pane fade">
+  <div id="menu1" class="tab-pane fade" role="tabpanel">
                         <!-- +++++++++++++++++++++ CODE FOR PROCESSING++++++++++++++++++++++++-->
                     <div style="padding-left: 2rem;">
                 <div>
@@ -200,7 +204,7 @@
 							
                     </div>
 	
-  <div id="menu2" class="tab-pane fade">
+  <div id="menu2" class="tab-pane fade" role="tabpanel">
     <h3>Analyseergebnisse:</h3>
                     <div class="card-body">
                     <!-- +++++++++++++++++++++ CODE FOR RESULTS++++++++++++++++++++++++-->
@@ -216,7 +220,7 @@
   <div id="caption"></div>
 </div>
 						
-	<div>
+	<div style="float: left;">
 			<?php
      $files = glob("../Output/*.*");
      for ($i=0; $i<count($files); $i++)
@@ -231,9 +235,11 @@
 
          $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
          if (in_array($ext, $supported_file)) {
-            echo "<h2>".basename($image)."</h2>"."<br />";
-             echo '<img src="'.$image .'" alt=" '.basename($image).'" onclick="showModal(this)" />';
+			 echo '<div class="modalDiv">';
+            echo "<h3>".basename($image)."</h3>"."<br />";
+             echo '<img src="'.$image .'" alt=" '.basename($image).'" onclick="showModal(this)" class="modalImage"/>';
 				 echo "<br /><br />";
+			 echo '</div>';
             } else {
                 continue;
             }

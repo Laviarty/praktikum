@@ -5,6 +5,15 @@ img {
     transition: 0.3s;
 }
 
+.modalImage {
+	width: 90%;
+}
+
+.modalDiv{
+	display: inline-block;
+	width: 30%;
+}
+
 #activity-indicator {
     margin-left: auto;
     margin-right: auto;
