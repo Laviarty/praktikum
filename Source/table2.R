@@ -115,4 +115,4 @@ if(dbExistsTable(con,"exprtable")){ #Falls Table existiert
   dbWriteTable(con, name="exprtable", value=finframe) #Schreibt Daten
 }
   
-#write.csv(finframe,file="../Output/signalTable.csv")
+write.csv(finframe,file="../Output/signalTable.csv")
