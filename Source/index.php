@@ -206,46 +206,32 @@
 	
   <div id="menu2" class="tab-pane fade" role="tabpanel">
     <h3>Analyseergebnisse:</h3>
-                    <div class="card-body">
+	  <button onclick=zeigeErgebnisse()>Zeige Ergebnisse!</button>
+	  <div class="card-body">
                     <!-- +++++++++++++++++++++ CODE FOR RESULTS++++++++++++++++++++++++-->
-                   	<div id="myModal" class="modal">
+		  <div id="myModal" class="modal">
 
-  <!-- The Close Button -->
-  <span class="close">&times;</span>
+  	<!-- The Close Button -->
+			  <span class="close">&times;</span>
 
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
+  			<!-- Modal Content (The Image) -->
+  			<img class="modal-content" id="img01">
 
-  <!-- Modal Caption (Image Text) -->
-  <div id="caption"></div>
-</div>
+  	<!-- Modal Caption (Image Text) -->
+  			<div id="caption"></div>
+		</div>
 						
-	<div style="float: left;">
-			<?php
-     $files = glob("../Output/*.*");
-     for ($i=0; $i<count($files); $i++)
-      {
-        $image = $files[$i];
-        $supported_file = array(
-                'gif',
-                'jpg',
-                'jpeg',
-                'png'
-         );
-
-         $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-         if (in_array($ext, $supported_file)) {
-			 echo '<div class="modalDiv">';
-            echo "<h3>".basename($image)."</h3>"."<br />";
-             echo '<img src="'.$image .'" alt=" '.basename($image).'" onclick="showModal(this)" class="modalImage"/>';
-				 echo "<br /><br />";
-			 echo '</div>';
-            } else {
-                continue;
-            }
-          }
-       ?>
+		<div id="imagesKlein" style="float: left;">
+			
 	</div>
+		  <script>
+			  function zeigeErgebnisse(){
+				$.post("bilderAnzeigen.php", function(data){
+					$("#imagesKlein").html(data);
+				});
+					return false;
+			  }
+			</script>
 <script src="Scripts/modalImages.js"></script>
                     </div>
                 </div>
