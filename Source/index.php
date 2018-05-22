@@ -14,13 +14,9 @@
         
         <script src="Scripts/dropzone.js"></script>
         
-        <!--+++++++++++++++++++Die Scripte solten eigentlich ans ende von Body+++++++++++++++++++++++++++++++-->
        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-        
-        <!--<script>Dropzone.autoDiscover = false;</script>-->
     </head>
     
     <body>
@@ -44,14 +40,16 @@
                                 <input type="text" id="projectname">
                             </form>
                             <div id="dropzone">
-                                <form action="./Scripts/uploadDropzone.php" class="dropzone dz-clickable" id="demo-upload" enctype="multipart/form-data">
+                                <form action="./Scripts/uploadDropzone.php" class="dropzone dz-clickable" name="updrop" id="updrop" enctype="multipart/form-data">
                                     <div class="dz-message">Drop files here or click to upload.</div>
-                                        <div  class="fallback">
-                                            <input type="file" name="files[]" multiple>
-                                        </div>
                                 </form>
                             </div>
                         </section>
+                        <script>
+                            Dropzone.options.updrop={
+                                acceptedFiles:".CEL"
+                            };    
+                        </script>
     
                         <!--+++++++++++++++++UPLOAD BUTTONS+++++++++++++++++++++++-->
                         <div id="btnAndProgress">
@@ -206,18 +204,19 @@
 	
   <div id="menu2" class="tab-pane fade" role="tabpanel">
     <h3>Analyseergebnisse:</h3>
+	  
 	  <button onclick=zeigeErgebnisse()>Zeige Ergebnisse!</button>
-	  <div class="card-body">
+                    <div class="card-body">
                     <!-- +++++++++++++++++++++ CODE FOR RESULTS++++++++++++++++++++++++-->
-		  <div id="myModal" class="modal">
+                   	<div id="myModal" class="modal">
 
-  	<!-- The Close Button -->
-			  <span class="close">&times;</span>
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
 
-  			<!-- Modal Content (The Image) -->
-  			<img class="modal-content" id="img01">
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
 
-  	<!-- Modal Caption (Image Text) -->
+	<!-- Modal Caption (Image Text) -->
   			<div id="caption"></div>
 		</div>
 						
