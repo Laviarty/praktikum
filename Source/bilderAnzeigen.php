@@ -1,5 +1,5 @@
 <?php
-     $files = glob("../Output/*.*");
+     $files = glob("./../Output/*.*");
      for ($i=0; $i<count($files); $i++)
       {
         $image = $files[$i];

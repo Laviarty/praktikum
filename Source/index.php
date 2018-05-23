@@ -10,7 +10,7 @@
        <link rel="stylesheet" href="./css/dropzone.css">
 		
 		
-       <link rel="stylesheet" href="css/images.css">
+       <link rel="stylesheet" href="./css/images.css">
         
         <script src="Scripts/dropzone.js"></script>
         
@@ -66,8 +66,14 @@
                                 <label class="btn btn-primary start" >
                                     <i class="fa fa-arrow-circle-o-up"></i>
                                     <span>Start Upload</span>
-                                    <input type="submit" value="upload" hidden>
+                                    <input type="submit" value="upload" onclick=goto() hidden>
                                 </label>
+								
+								<script>
+									function goto(){
+									$('#menu1').tab('show');
+									}
+								</script>
             
                                 <label type="reset" class="btn btn-warning cancel">
                                     <i class="fa fa-ban"></i>
@@ -191,6 +197,7 @@
                             document.getElementById('runinfo').innerHTML = type2;
                 
                             window.location.href = "Scripts/Ranalyse.php?name=" + type2;
+							$('#menu2').tab('show');
                         }
                     </script>
                 </div>
@@ -221,6 +228,31 @@
 		</div>
 						
 		<div id="imagesKlein" style="float: left;">
+			<?php
+     $files = glob("../Output/*.*");
+     for ($i=0; $i<count($files); $i++)
+      {
+        $image = $files[$i];
+        $supported_file = array(
+                'gif',
+                'jpg',
+                'jpeg',
+                'png'
+         );
+
+         $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+		  $imageDiv = "";
+         if (in_array($ext, $supported_file)) {
+			 echo '<div class="modalDiv">';
+            echo "<h3>".basename($image)."</h3>"."<br />";
+             echo '<img src="'.$image .'" alt=" '.basename($image).'" onclick="showModal(this)" class="modalImage"/>';
+				 echo "<br /><br />";
+			echo'</div>';
+            } else {
+                continue;
+            }
+          }
+       ?>
 			
 	</div>
 		  <script>
