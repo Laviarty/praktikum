@@ -204,11 +204,24 @@
 	
   <div id="menu2" class="tab-pane fade" role="tabpanel">
     <h3>Analyseergebnisse:</h3>
-	  
-	 <label class="btn btn-primary start" >
-                                    <span>Bilder Anzeigen</span>
-                                    <input type="button" onclick=zeigeErgebnisse() hidden>
-                                </label>
+	  <div style="display: inline-block;">
+	 	<label class="btn btn-primary start">
+			<span>Bilder Anzeigen</span>
+        	<input type="button" onclick=zeigeErgebnisse() hidden>
+      	</label>
+		  
+		<label class="btn btn-success fileinput-button">
+        	<span>Download</span>
+         	<input type="button" onclick=download() hidden>                     
+      	</label>
+		  
+		  <script>
+			  function download(){
+				$.post("download.php", function(data){
+				});
+			  }
+			</script>
+	  </div>
                     <div class="card-body">
                     <!-- +++++++++++++++++++++ CODE FOR RESULTS++++++++++++++++++++++++-->
                    	<div id="myModal" class="modal">
@@ -229,11 +242,11 @@
 		  <script>
 			  function zeigeErgebnisse(){
 				$.post("bilderAnzeigen.php", function(data){
-					$("#imagesKlein").html(data);
+				$("#imagesKlein").html(data);
 				});
-					return false;
 			  }
 			</script>
+			
         <script src="Scripts/modalImages.js"></script>
     </div>
     <div id="datatable">

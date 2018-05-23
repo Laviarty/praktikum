@@ -1,4 +1,5 @@
 <?php
+//debug_to_console("test");
      $files = glob("../Output/*.*");
 
 		  $imageDiv = "";
@@ -19,7 +20,7 @@
              $imageDiv .= '<img src="'.$image .'" alt=" '.basename($image).'" onclick="showModal(this)" class="modalImage"/>';
 			$imageDiv .= "<br /><br />";
 			 $imageDiv .= '</div>';
-			 debug_to_console($imageDiv);
+			 //debug_to_console($imageDiv);
             } else {
                 continue;
             }
