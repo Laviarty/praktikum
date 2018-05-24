@@ -13,6 +13,7 @@
        <link rel="stylesheet" href="./css/images.css">
         
         <script src="Scripts/dropzone.js"></script>
+		<script src="funktionen.js"></script>
         
        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -70,12 +71,6 @@
                                     <input type="submit" value="upload" onclick=goto() hidden>
                                 </label>
 								
-								<script>
-									function goto(){
-									$('#menu1').tab('show');
-									}
-								</script>
-
             
                     <label type="reset" class="btn btn-warning cancel">
                         <i class="fa fa-ban"></i>
@@ -88,12 +83,6 @@
                         <i class="fa fa-ban"></i>
                         <span>Delete</span>
                         <input type="button" class="button" onclick=deleteFiles() hidden>
-						<script> 
-						  function deleteFiles(){
-                              $.post("delete.php");
-							 return false;
-						  }
-						</script>
                     </label>
                 </div>
             </form>
@@ -182,17 +171,7 @@
                     </form>
                             
                     <p id="runinfo"></p>
-                    <script>
-                        function readselect(){
-                            var type = $('form').serialize();
-                            var type2 = type.replace(/&|select=/gi, "");
-                
-                            document.getElementById('runinfo').innerHTML = type2;
-                
-                            window.location.href = "Scripts/Ranalyse.php?name=" + type2;
-							$('#menu2').tab('show');
-                        }
-                    </script>
+                    
                 </div>
                 </div>
 	  
@@ -204,26 +183,56 @@
 	
   <div id="menu2" class="tab-pane fade" role="tabpanel">
     <h3>Analyseergebnisse:</h3>
-	  <div style="display: inline-block;">
+	  <div class="card-body">
+	  <!-- +++++++++++++++++++ Ergebnissbuttons +++++++++++++++++++++ -->
+	  <div class="row">
 	 	<label class="btn btn-primary start">
-			<span>Bilder Anzeigen</span>
+			<span>Show Graphs</span>
         	<input type="button" onclick=zeigeErgebnisse() hidden>
       	</label>
 		  
-		<label class="btn btn-success fileinput-button">
-        	<span>Download</span>
+		  <label class="btn btn-primary start">
+        	<span>Show Table</span>
          	<input type="button" onclick=download() hidden>                     
       	</label>
 		  
-		  <script>
-			  function download(){
-				$.post("download.php", function(data){
-				});
-			  }
-			</script>
+		<label class="btn btn-primary start">
+        	<span>Download</span>
+         	<input type="button" onclick=showTable() hidden>                     
+      	</label>
+		  
 	  </div>
-                    <div class="card-body">
+	  
+	  <!-- +++++++++++++++++++++++  Filter ++++++++++++++++++++++ -->
+	  <form class="form-inline">
+  		<input type="text" class="form-control col-md-2" id="geneId" placeholder="Gene-ID">
+  		<input type="search" class="form-control col-md-2" id="genename" placeholder="Genename">
+		  
+		  <label for="hoch" class="col-md-1">SLR &gt; </label>
+		  <input type="number" class="form-control col-md-1" id="hoch" placeholder="">
+		  
+		  <label for="runter" class="col-md-1"> SLR &lt;</label>
+		  <input type="number" class="form-control col-md-1" id="runter" placeholder="">
+		  
+		  
+		  <div class="form-check form-check-inline col-md-1">
+  			<input class="form-check-input" type="radio" id="inlineCheckbox1" name="typeradios">
+  			<label class="form-check-label" for="inlineCheckbox1">RMA</label>
+		</div>
+		<div class="form-check form-check-inline col-md-1">
+  			<input class="form-check-input" type="radio" id="inlineCheckbox2" name="typeradios">
+  			<label class="form-check-label" for="inlineCheckbox2">MAS5</label>
+		</div>
+		  
+		  <label class="btn btn-primary start col-md-1">
+    		<span>Search</span>
+         	<input type="button" onclick=showTable() hidden>                     
+      	</label>
+</form>
+	  
                     <!-- +++++++++++++++++++++ CODE FOR RESULTS++++++++++++++++++++++++-->
+	  
+                    
                    	<div id="myModal" class="modal">
 
   <!-- The Close Button -->
@@ -239,57 +248,11 @@
 		<div id="imagesKlein" style="float: left;">
 			
 	</div>
-		  <script>
-			  function zeigeErgebnisse(){
-				$.post("bilderAnzeigen.php", function(data){
-				$("#imagesKlein").html(data);
-				});
-			  }
-			</script>
-			
+		 
         <script src="Scripts/modalImages.js"></script>
     </div>
     <div id="datatable">
-        <?php
-            $dbServer = "127.0.0.1";
-            $dbUser = "fabian";
-            $dbPassword = "1234";
-            $dbName = "praktikum";
-    
-            $con =mysqli_connect($dbServer, $dbUser, $dbPassword, $dbName);
         
-            $result = mysqli_query($con, "SELECT * FROM exprtable;");
-            $colnames = mysqli_query($con, "SELECT column_name FROM information_schema.columns WHERE  table_name = 'exprtable' AND table_schema = 'praktikum';");
-            while($row=mysqli_fetch_assoc($colnames)){
-                $names[]=$row['column_name'];
-            }
-            $namesCount=count($names);
-            $n =0;
-        
-            $resultcheck = mysqli_num_rows($result);
-            if($resultcheck > 0){
-                echo "<table><tr>";
-                for($i=2; $i < $namesCount;$i++){
-                    
-                    if(strlen($names[$i]) > 15){
-                        echo "<th>".substr($names[$i],0,15)."...</th>";
-                    }
-                    else{
-                    echo "<th>".$names[$i]."</th>";
-                    }
-                }
-                echo "<tr>";
-                while($row=mysqli_fetch_assoc($result) and $n < 200){
-                    echo "<tr>";
-                    for($i=2; $i < $namesCount ;$i++){
-                        echo "<td>".$row[$names[$i]]."</td>";   
-                    }
-                    echo "</tr>";
-                    $n = $n+1;
-                }
-                echo "</table>";
-            }
-        ?>
     </div> <!--Datatable--> 
                 </div>
 			</div>
