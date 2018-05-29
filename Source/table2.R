@@ -74,12 +74,26 @@ getmedian <- function(finframe){
     averagedesease<- rowSums(finframe[,startdesease:enddesease])/length(desease)
     averagecontrol<- rowSums(finframe[,startcontrol:ncol(finframe)])/length(control)
     
-    print(startdesease)
-    print(enddesease)
-    print(startcontrol)
-    print(ncol(finframe))
+    #print(startdesease)
+    #print(enddesease)
+    #print(startcontrol)
+    #print(ncol(finframe))
     finframe<-cbind(finframe,averagedesease,averagecontrol)
   }
+  
+  #SLR-Wert berechnen:
+  
+  #Für Rma:
+  n=nrow(finframe)/2
+  slrma<- finframe$averagedesease[1:n] - finframe$averagecontrol[1:n]
+  
+  #Für Mas:
+  logdes<- log10(finframe$averagedesease[(n+1):nrow(finframe)])
+  logcon<- log10(finframe$averagecontrol[(n+1):nrow(finframe)])
+  slmas<- logdes-logcon
+  
+  slr<-c(slrma,slmas) #Vektoren verknüpfen
+  finframe<-cbind(finframe,slr)
   
   
   return(finframe)
@@ -103,7 +117,7 @@ finframe<-finframe[c("PROBEID","GENESYMBOL", "GENENAME", "SIGNALTYPE", chipnames
 
 #Berechnen der Median Werte:
 finframe<-getmedian(finframe)
-colnames(finframe)<-c("PROBEID","GENESYMBOL", "GENENAME", "SIGNALTYPE", chipnames, "AVERAGE DESEASE", "AVERAGE CONTROL")
+colnames(finframe)<-c("PROBEID","GENESYMBOL", "GENENAME", "SIGNALTYPE", chipnames, "AVERAGE DESEASE", "AVERAGE CONTROL","SLR")
 
 #Ausgabe:
 

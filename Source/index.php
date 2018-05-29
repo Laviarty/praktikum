@@ -34,7 +34,7 @@
   <div id="home" class="tab-pane active" style="padding-left: 2rem;" role="tabpanel">
     <h2>File Upload</h2>
     <div id="uptxt">
-        <p>“Enter cool name here” is a tool for quality control and analysis of Affymetrix HG-U133 Genchip experiments. We provide you with several plots and a table containing your data.</p>
+        <p>We build a tool for quality control and analysis of Affymetrix HG-U133 Genchip experiments. We provide you with several plots and a table containing your data.</p>
     </div>
     <div>
         <!--++++++++++++START OF UPLOAD+++++++++++++++++++-->
@@ -182,7 +182,7 @@
                     </div>
 	
   <div id="menu2" class="tab-pane fade" role="tabpanel">
-    <h3>Analyseergebnisse:</h3>
+      <h3>Analyseergebnisse:</h3>
 	  <div class="card-body">
 	  <!-- +++++++++++++++++++ Ergebnissbuttons +++++++++++++++++++++ -->
 	  <div class="row">
@@ -193,20 +193,27 @@
 		  
 		  <label class="btn btn-primary start">
         	<span>Show Table</span>
-         	<input type="button" onclick=download() hidden>                     
-      	</label>
-		  
-		<label class="btn btn-primary start">
-        	<span>Download</span>
          	<input type="button" onclick=showTable() hidden>                     
       	</label>
-		  
+          
+          <a href="../Output/Expressionsanalyse.zip" download>
+		   <label class="btn btn-primary start" download>
+             <span>Download</span>        
+      	   </label>
+          </a>
+          
+          <!--<a href="../Output/Expressionsanalyse.zip" download>                    
+            <label class="btn btn-primary start" download>
+                <i class="fa fa-download"></i>
+                <span>Download</span>
+            </label>
+          </a>-->
 	  </div>
 	  
 	  <!-- +++++++++++++++++++++++  Filter ++++++++++++++++++++++ -->
-	  <form class="form-inline">
-  		<input type="text" class="form-control col-md-2" id="geneId" placeholder="Gene-ID">
-  		<input type="search" class="form-control col-md-2" id="genename" placeholder="Genename">
+	  <form class="form-inline" name="search" id="search">
+  		<input type="text" class="form-control col-md-2" id="geneId" placeholder="Probe-ID">
+  		<input type="search" class="form-control col-md-2" id="genename" placeholder="Gene-ID">
 		  
 		  <label for="hoch" class="col-md-1">SLR &gt; </label>
 		  <input type="number" class="form-control col-md-1" id="hoch" placeholder="">
