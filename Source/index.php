@@ -199,6 +199,7 @@
           <a href="../Output/Expressionsanalyse.zip" download>
 		   <label class="btn btn-primary start" download>
              <span>Download</span>        
+			   <input type="button" onclick=download() hidden> 
       	   </label>
           </a>
           
@@ -213,13 +214,13 @@
 	  <!-- +++++++++++++++++++++++  Filter ++++++++++++++++++++++ -->
 	  <form class="form-inline" name="search" id="search">
   		<input type="text" class="form-control col-md-2" id="geneId" placeholder="Probe-ID">
-  		<input type="search" class="form-control col-md-2" id="genename" placeholder="Gene-ID">
+  		<input type="text" class="form-control col-md-2" id="genename" placeholder="Gene-ID">
 		  
 		  <label for="hoch" class="col-md-1">SLR &gt; </label>
-		  <input type="number" class="form-control col-md-1" id="hoch" placeholder="">
+		  <input type="text" class="form-control col-md-1" id="hoch" placeholder="">
 		  
 		  <label for="runter" class="col-md-1"> SLR &lt;</label>
-		  <input type="number" class="form-control col-md-1" id="runter" placeholder="">
+		  <input type="text" class="form-control col-md-1" id="runter" placeholder="">
 		  
 		  
 		  <div class="form-check form-check-inline col-md-1">
